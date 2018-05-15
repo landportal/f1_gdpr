@@ -1,0 +1,4 @@
+name = F1 GDPR
+description = "Module for using EU Cookie Compliance module to block Google Analytics."
+core = 7.x
+dependencies[] = eu_cookie_compliance

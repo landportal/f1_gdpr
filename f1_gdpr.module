@@ -1,0 +1,32 @@
+<?php
+/**
+ * @file
+ * Code for the F1 GDPR module.
+ */
+
+/**
+ * Implements hook_page_alter().
+ *
+ * Adds JavaScript to the <head> to disable Google Analytics tracking if the
+ * user has not given consent. Assumes the site is using the google_analytics
+ * module to add GA to the site.
+ */
+function f1_gdpr_page_alter(&$page) {
+  $ga = variable_get('googleanalytics_account', '');
+
+  $script = <<<EOS
+    const match = document.cookie.match(new RegExp('has_consent=([^;]+)'));
+    const has_consent = match ? match[1] : -1;
+    console.log(has_consent);
+    if('{$ga}' && has_consent < 1) {
+      window['ga-disable-{$ga}'] = true;
+    }
+EOS;
+
+  if($ga) {
+    drupal_add_js($script, array('scope' => 'header', 'group' => -1000,
+      'type' => 'inline', 'requires_jquery' => FALSE));
+  }
+
+  drupal_add_css(drupal_get_path('module', 'f1_gdpr') . '/f1_gdpr.css');
+}

@@ -1,0 +1,68 @@
+<?php
+
+/**
+ * @file
+ * Installation file.
+ */
+
+/**
+ * Implements hook_install.
+ *
+ * Override default EU cookie compliance variables on installation.
+ */
+function f1_gdpr_install() {
+  $popup_settings = array(
+    'popup_enabled' => 1,
+    'popup_clicking_confirmation' => 0,
+    'popup_info' => array(
+      'value' => '<p>We use cookies to analyse how visitors use our website and to help us provide the best possible experience for users.</p>
+
+<p>Click Accept below if you agree to allow cookies from ' . variable_get('site_name', 'this website') . '.</p>',
+      'format' => 'full_html',
+    ),
+    'use_mobile_message' => 1,
+    'mobile_popup_info' => array(
+      'value' => '<p>We use cookies to analyse how visitors use our website and to help us provide the best possible experience for users.</p>
+
+<p>Click Accept below if you agree to allow cookies from ' . variable_get('site_name', 'this website') . '. Otherwise, click Decline.</p>',
+      'format' => 'full_html',
+    ),
+    'mobile_breakpoint' => '768',
+    'popup_agree_button_message' => 'Accept',
+    'show_disagree_button' => 1,
+    'popup_disagree_button_message' => 'Decline',
+    'popup_agreed_enabled' => 0,
+    'popup_hide_agreed' => 0,
+    'popup_agreed' => array(
+      'value' => '<h2>Thank you for accepting cookies</h2>
+
+<p>You can now hide this message or find out more about cookies.</p>
+',
+      'format' => 'full_html',
+    ),
+    'popup_find_more_button_message' => 'More info',
+    'popup_hide_button_message' => 'Hide',
+    'popup_link' => 'privacy',
+    'popup_link_new_window' => 1,
+    'popup_position' => FALSE,
+    'use_bare_css' => 1,
+    'popup_text_hex' => '',
+    'popup_bg_hex' => '',
+    'popup_height' => '',
+    'popup_width' => '',
+    'fixed_top_position' => 1,
+    'popup_delay' => '1000',
+    'disagree_do_not_show_popup' => 1,
+    'reload_page' => 1,
+    'popup_scrolling_confirmation' => 0,
+    'cookie_name' => 'has_consent',
+    'domains_option' => '1',
+    'domains_list' => '',
+    'exclude_paths' => '',
+    'exclude_admin_pages' => 1,
+    'exclude_uid_1' => 1,
+    'script_scope' => 'footer',
+    'better_support_for_screen_readers' => 0,
+  );
+  variable_set('eu_cookie_compliance', $popup_settings);
+}
