@@ -96,3 +96,11 @@ AUTHORSHIP
 
 Developed by Andrew Bielefeldt for Forum One Communications Corporation.
 https://www.drupal.org/u/caesius
+
+This module was not developed with the intention of eventually becoming a
+contributed module. As such it's very rough around the edges and will not be
+especially helpful out of the box. However, this also means that developers can
+fork or modify this module as needed without worrying about future changes.
+
+Original sandbox page:
+https://www.drupal.org/sandbox/caesius/2973123
