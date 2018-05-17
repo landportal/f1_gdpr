@@ -10,6 +10,16 @@
   line-height: 1em;
 }
 
+#sliding-popup a, #sliding-popup a:visited {
+  color: #f0723a;
+  text-decoration: none;
+}
+
+#sliding-popup a:hover, #sliding-popup a:focus, #sliding-popup a:active {
+  color: #f0723a;
+  text-decoration: underline;
+}
+
 #sliding-popup .popup-content #popup-text {
   font-size: 1em;
   float: none;

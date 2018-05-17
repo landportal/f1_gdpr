@@ -11,33 +11,42 @@
  * Override default EU cookie compliance variables on installation.
  */
 function f1_gdpr_install() {
+  $sitename = variable_get('site_name', 'this website');
+  $cookie_policy_url = '/cookie-policy';
+  $mobile_breakpoint = '768';
+
+  $desktop_message = "<p>We use cookies to analyse how visitors use our website and to help us provide the best possible experience for users.</p>
+
+    <p>Click Accept below if you agree to allow cookies from {$sitename}, or view our <a href=\"{$cookie_policy_url}\">Cookie Policy</a> for more information.</p>";
+
+  $mobile_message = "<p>We use cookies to analyse how visitors use our website and to help us provide the best possible experience for users.</p>
+
+    <p>Click Accept below if you agree to allow cookies from {$sitename}. Otherwise, click Decline.</p>";
+
+  $accept_message = "<p>You are now accepting cookies from {$sitename}.</p>
+
+    <p>To update your preferences later, or to learn more about what this means, visit our <a href=\"{$cookie_policy_url}\">Cookie Policy</a> page.</p>";
+
   $popup_settings = array(
     'popup_enabled' => 1,
     'popup_clicking_confirmation' => 0,
     'popup_info' => array(
-      'value' => '<p>We use cookies to analyse how visitors use our website and to help us provide the best possible experience for users.</p>
-
-<p>Click Accept below if you agree to allow cookies from ' . variable_get('site_name', 'this website') . '.</p>',
+      'value' => $desktop_message,
       'format' => 'full_html',
     ),
     'use_mobile_message' => 1,
     'mobile_popup_info' => array(
-      'value' => '<p>We use cookies to analyse how visitors use our website and to help us provide the best possible experience for users.</p>
-
-<p>Click Accept below if you agree to allow cookies from ' . variable_get('site_name', 'this website') . '. Otherwise, click Decline.</p>',
+      'value' => $mobile_message,
       'format' => 'full_html',
     ),
-    'mobile_breakpoint' => '768',
+    'mobile_breakpoint' => $mobile_breakpoint,
     'popup_agree_button_message' => 'Accept',
     'show_disagree_button' => 1,
     'popup_disagree_button_message' => 'Decline',
-    'popup_agreed_enabled' => 0,
-    'popup_hide_agreed' => 0,
+    'popup_agreed_enabled' => 1,
+    'popup_hide_agreed' => 1,
     'popup_agreed' => array(
-      'value' => '<h2>Thank you for accepting cookies</h2>
-
-<p>You can now hide this message or find out more about cookies.</p>
-',
+      'value' => $accept_message,
       'format' => 'full_html',
     ),
     'popup_find_more_button_message' => 'More info',
