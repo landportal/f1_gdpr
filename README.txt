@@ -50,8 +50,11 @@ This module's feature exports override the default configuration provided by
 the EU Cookie Compliance module in order to conform to a specific interpre-
 tation of what is required by GDPR in regards to Google Analytics specifically.
 The provided message also uses the site_name system variable for your website's
-name. The configuration may need to be updated in order to bring it in line
-with your website's needs.
+name. The configuration absolutely needs to be updated in order to bring it in
+line with your website's needs. This configuration should be changed either by
+editing the .install file prior to enabling the module, or by editing it via the
+EU Cookie Compliance administration page and then exporting the changes using
+the Strongarm and Features modules.
 
 One feature included in the default configuration is the distinct pop-ups
 between mobile and desktop. The mobile version has a "Decline" button, while
@@ -60,19 +63,21 @@ desktop screen then the cookie pop-up at the bottom does not interfere with them
 using the site to the extent that they would feel obligated to agree to allow
 cookies in exchange for being able to use the site. On mobile it's a different
 story, as the pop-up is likely to take up most of the screen, so they need an
-option to explicitly decline it. If a portion of the site audience does not
-have the option to decline, instead having to express their non-consent by
-avoiding the impulse to click the "Agree" button, then many more users would
-end up agreeing, thus saving the site analytics from a bigger hit. Whether this
-would be considered underhanded or in bad faith may depend on what their
-analytics data would be used for, e.g. advertising. If in doubt, disable this
+option to immediately decline it. If a portion of the site audience does not
+have the option to decline directly from the pop-up, instead having to express
+their non-consent by avoiding the impulse to click the "Agree" button, then many
+more users would end up agreeing, thus saving the site analytics from a bigger
+hit. Whether this would be considered underhanded or a violation of GDPR may
+depend on what their analytics data would be used for, e.g. advertising, and
+whether the pop-up has a link to a page where a user may explicitly decline
+(see also the LEGAL PAGES section of this readme). If in doubt, disable this
 feature by unchecking the "Use a different message for mobile phones" checkbox
-in the EU cookie compliance module configuration and by removing the @media CSS
-rule in f1_gdpr.css.
+in the EU Cookie Compliance admin configuration and by removing the @media CSS
+rule in css/f1_gdpr.css.
 
 Additionally, if you change the mobile breakpoint in the module configuration,
 the mobile breakpoint will also need to be updated in f1_gdpr.css. Add 1 pixel
-to the breakpoint that you set.
+for the breakpoint that you set.
 
 
 LEGAL PAGES
