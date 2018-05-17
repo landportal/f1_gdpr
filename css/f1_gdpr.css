@@ -52,6 +52,10 @@
   border: none;
 }
 
+#sliding-popup .popup-content.agreed #popup-buttons button.find-more-button {
+  display: none;
+}
+
 @media (min-width: 769px) {
   #sliding-popup .popup-content #popup-buttons button.find-more-button {
     display: none;
