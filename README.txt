@@ -75,6 +75,17 @@ the mobile breakpoint will also need to be updated in f1_gdpr.css. Add 1 pixel
 to the breakpoint that you set.
 
 
+LEGAL PAGES
+---------------
+
+In order to comply with GDPR, you may need to update your Privacy Policy and/or
+Cookie Policy pages. You should consult with your legal counsel to determine
+what updates will need to be made. On one of these pages, you can also embed a
+button to toggle a user's acceptance of site cookies. The code for this is in
+includes/toggle_buttons.html. If you are able to embed PHP directly into the
+relevant page then you may call the f1_gdpr_embed_toggle_buttons() function.
+
+
 AUTHORSHIP
 ---------------
 
