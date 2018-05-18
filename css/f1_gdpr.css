@@ -32,6 +32,7 @@
   text-align: center;
   line-height: 2em;
   margin: 0;
+  hyphens: none;
 }
 
 #sliding-popup .popup-content #popup-buttons {
