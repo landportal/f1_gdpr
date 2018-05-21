@@ -51,6 +51,7 @@
   height: 2em;
   width: 6em;
   border: none;
+  transition-duration: 0s;
 }
 
 #sliding-popup .popup-content.agreed #popup-buttons button.find-more-button {

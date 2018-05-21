@@ -17,7 +17,7 @@ function f1_gdpr_install() {
 
   $desktop_message = "<p>We use cookies to analyse how visitors use our website and to help us provide the best possible experience for users.</p>
 
-    <p>Click Accept below if you agree to allow cookies from {$sitename}, or view our <a href=\"{$cookie_policy_url}\">Cookie Policy</a> for more information.</p>";
+    <p>Click Accept below if you agree to allow cookies from {$sitename}. For more information or to opt-out of cookies, please view our <a href=\"{$cookie_policy_url}\">Cookie Policy</a>.</p>";
 
   $mobile_message = "<p>We use cookies to analyse how visitors use our website and to help us provide the best possible experience for users.</p>
 
