@@ -17,7 +17,7 @@ function f1_gdpr_page_alter(&$page) {
   $script = <<<EOS
     var match = document.cookie.match(new RegExp('has_consent=([^;]+)'));
     const has_consent = match ? parseInt(match[1]) : -1;
-    if('{$ga}' && has_consent < 1) {
+    if(has_consent < 1) {
       window['ga-disable-{$ga}'] = true;
     }
 EOS;
@@ -26,6 +26,9 @@ EOS;
     drupal_add_js($script, array('scope' => 'header', 'group' => -1000,
       'type' => 'inline', 'requires_jquery' => FALSE));
   }
+
+  drupal_add_js(drupal_get_path('module', 'f1_gdpr') . '/js/toggle_buttons.js',
+    array('scope' => 'header', 'type' => 'file', 'requires_jquery' => FALSE));
 
   drupal_add_css(drupal_get_path('module', 'f1_gdpr') . '/css/f1_gdpr.css');
 }
